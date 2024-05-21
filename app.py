@@ -2,11 +2,9 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-# Load the trained model
 with open('linear_regression_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
-# Function to predict car price
 def predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petrol, seller_individual, transmission_manual):
     input_data = {'Year': year,
                   'Present_Price': present_price,
@@ -20,11 +18,10 @@ def predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petr
     predicted_price = model.predict(input_df)[0]
     return predicted_price
 
-# Streamlit UI
-st.title('Car Price Preditor:')
-
-# Sidebar inputs
+st.title('Car Price Predictor:')
+st.image('car_image1.jpg',width=600)
 st.sidebar.header('Enter Car Details')
+
 year = st.sidebar.number_input('Year of Manufacture', min_value=1990, max_value=2024, value=2010)
 present_price = st.sidebar.number_input('Present Price (in lakhs)', min_value=0.5, max_value=50.0, value=5.0)
 kms_driven = st.sidebar.number_input('Kilometers Driven', min_value=500, max_value=500000, value=50000)
@@ -38,7 +35,15 @@ fuel_petrol = 1 if fuel_type == 'Petrol' else 0
 seller_individual = 1 if seller_type == 'Individual' else 0
 transmission_manual = 1 if transmission == 'Manual' else 0
 
-# Prediction and display
+
+if year < 1990 or year > 2024:
+    st.error('Please enter a valid year between 1990 and 2024.')
+
+
 if st.sidebar.button('Predict'):
-    predicted_price = predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petrol, seller_individual, transmission_manual)
-    st.success(f'Your Predicted Car Price: {predicted_price:.2f} lakhs')
+    with st.spinner('Predicting...'):
+        predicted_price = predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petrol, seller_individual, transmission_manual)
+        if predicted_price < 0:
+            st.error('Error: Predicted price is negative. Please check your input values.')
+        else:
+            st.success(f'Your Predicted Car Price: {predicted_price:.2f} lakhs')
