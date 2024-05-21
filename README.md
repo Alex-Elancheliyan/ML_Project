@@ -10,7 +10,9 @@ This project is a part of the machine learning course I took at STC Skills. The 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+- [Contact](#contact)
+- [Collaboration](#collaboration)
+  
 
 ## Project Description
 The project aims to predict the prices of used cars based on various features such as make, model, year, mileage, and more. The dataset used for training and testing the model was sourced from Kaggle. The regression algorithm was selected for this task due to its effectiveness in predicting continuous values. An interactive web application was built using Streamlit to allow users to input car details and get price predictions. The app is deployed on Netlify for easy access.
@@ -52,3 +54,12 @@ To run this project locally, follow these steps:
 
 ## Contributing
 Contributions are welcome! If you have any ideas for improvements or find any bugs, feel free to fork the repository, make your changes, and submit a pull request. Please ensure your contributions align with the project's objectives and coding standards.
+
+## Contact
+
+For any inquiries or questions regarding this project, feel free to contact me at [alexcheliyan1@gmail.com](mailto:alexcheliyan1@gmail.com).
+
+## Collaboration
+
+I welcome collaboration and contributions! You can find me on GitHub at [@Alex-Elancheliyan](https://github.com/Alex-Elancheliyan).
+
