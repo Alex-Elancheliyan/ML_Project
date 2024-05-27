@@ -17,7 +17,8 @@ def predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petr
     input_df = pd.DataFrame(input_data, index=[0])
     predicted_price = model.predict(input_df)[0]
     return predicted_price
-
+    
+#SETTING UI TITLE
 st.title('Car Price Predictor:')
 st.image('car_image1.jpg',width=600)
 st.sidebar.header('Enter Car Details')
