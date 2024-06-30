@@ -36,7 +36,7 @@ fuel_petrol = 1 if fuel_type == 'Petrol' else 0
 seller_individual = 1 if seller_type == 'Individual' else 0
 transmission_manual = 1 if transmission == 'Manual' else 0
 
-
+#Addiding Additional validations
 if year < 1990 or year > 2024:
     st.error('Please enter a valid year between 1990 and 2024.')
 
