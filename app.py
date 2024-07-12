@@ -40,7 +40,7 @@ transmission_manual = 1 if transmission == 'Manual' else 0
 if year < 1990 or year > 2024:
     st.error('Please enter a valid year between 1990 and 2024.')
 
-
+#PREDICT BUTTON AT SIDE BAR CONFIGURING
 if st.sidebar.button('Predict'):
     with st.spinner('Predicting...'):
         predicted_price = predict_price(year, present_price, kms_driven, owner, fuel_diesel, fuel_petrol, seller_individual, transmission_manual)
